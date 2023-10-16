@@ -46,6 +46,14 @@
                             <label for="path" class="form-label">Image</label>
                             <input type="file" class="form-control" id="image" name="path">
                         </div>
+                        <div class="form-group">
+                            <label for="tuteur" class="form-label">Tuteur</label><br>
+                            <select name="tuteur" id="tuteur">
+                              {{-- @foreach( $utilisateurs->$tuteurs as $tuteur) --}}
+                            <option value=""></option>
+                            {{-- @endforeach --}}
+                            </select>
+                        </div>
                        <br><br>
                         <button type="submit" class="btn btn-primary">Ajouter un utilisateur</button>
                         <br><br>

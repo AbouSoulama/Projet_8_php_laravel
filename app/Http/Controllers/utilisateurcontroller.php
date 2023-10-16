@@ -23,6 +23,7 @@ class utilisateurcontroller extends Controller
          'nom'=> 'required',
          'prenom'=> 'required',
          'email'=> 'required',
+         'path'=> 'required',
      ]);
      $utilisateur = new Utilisateur();
      $utilisateur->nom = $request->nom;
@@ -46,6 +47,7 @@ class utilisateurcontroller extends Controller
         'nom'=> 'required',
         'prenom'=> 'required',
         'email'=> 'required',
+        'path'=> 'required',
     ]);
     $utilisateur = Utilisateur::find($request->id);
     $utilisateur->nom = $request->nom;

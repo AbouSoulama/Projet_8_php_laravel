@@ -16,6 +16,7 @@
     <hr>
         <h1>Crud administrateur</h1>
         <hr>
+        <a href="/tuteur" class="btn btn-info" style="margin-right: 60%">Liste des tuteurs</a>
         <a href="/ajouter" class="btn btn-primary">ajouter un utilisateur</a>
         @if (session('status'))
              <div class="alert alert-success">
@@ -30,6 +31,7 @@
                         <th>Prénom</th>
                         <th>Email</th> 
                         <th>Photo</th> 
+                        <th>Tuteur</th> 
                         <th>Action</th> 
                         <!-- <th>Mot de passe</th> 
                         <th>Nom utilisateur</th> 
@@ -46,9 +48,20 @@
                      <td>{{ $utilisateur->nom }}</td>
                      <td>{{ $utilisateur->prenom }}</td>
                      <td>{{ $utilisateur->email }}</td>
-                     <td>{{ $utilisateur->image ? $utilisateur->image->utilisateur_id: "" }}</td>
+                     <td> <img src="{{ $utilisateur->path }}" alt=""> </td>
+                     {{-- <td> <img src="{{ $utilisateur->image ? $utilisateur->image->path: "" }}" alt=""> </td> --}}
                      <td>
-                     <a href="/update-utilisateur/{{ $utilisateur->id }}" class="btn btn-info">renommer</a>
+                     
+                     @foreach($utilisateur->tuteurs as $tuteur)
+                     {{ $utilisateur->nom }}
+                     {{ $utilisateur->prenom }}
+                     {{-- <span>{{ $utilisateur->profession }}</span> --}}
+                     {{ $utilisateur->contact }}
+                     @endforeach
+                     
+                     </td>
+                     <td>
+                     <a href="/update-utilisateur/{{ $utilisateur->id }}" class="btn btn-info">Modifier</a>
                      <a href="/delete-utilisateur/{{ $utilisateur->id }}" class="btn btn-danger">Supprimer</a>
                      </td>
                 </tr>

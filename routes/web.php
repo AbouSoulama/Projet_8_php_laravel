@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\TuteurController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +18,6 @@ Route::get('/delete-utilisateur/{id}', [UtilisateurController::class, 'delete_ut
 Route::get('/update-utilisateur/{id}', [UtilisateurController::class, 'update_utilisateur']);
 Route::post('/update/traitement', [UtilisateurController::class, 'update_utilisateur_traitement']);
 Route::get('/utilisateur', [UtilisateurController::class, 'liste_utilisateur']);
+Route::get('/tuteur', [TuteurController::class, 'liste_tuteur']);
 Route::get('/ajouter', [UtilisateurController::class, 'ajouter_utilisateur']);
 Route::post('/ajouter/traitement', [UtilisateurController::class, 'ajouter_utilisateur_traitement']);

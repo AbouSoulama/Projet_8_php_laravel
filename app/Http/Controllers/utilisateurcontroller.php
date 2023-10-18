@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Utilisateur;
+use App\Models\Tuteur;
 
 class utilisateurcontroller extends Controller
 {
@@ -15,7 +16,8 @@ class utilisateurcontroller extends Controller
    }
    public function  ajouter_utilisateur()
    {
-       return view('utilisateur.ajouter');
+       $tuteurs = Tuteur::all();
+       return view('utilisateur.ajouter', compact('tuteurs'));
    }
    public function ajouter_utilisateur_traitement(Request $request)
    {
@@ -24,12 +26,14 @@ class utilisateurcontroller extends Controller
          'prenom'=> 'required',
          'email'=> 'required',
          'path'=> 'required',
+         'tuteur'=> 'required',
      ]);
      $utilisateur = new Utilisateur();
      $utilisateur->nom = $request->nom;
      $utilisateur->prenom = $request->prenom;
      $utilisateur->email = $request->email;
      $utilisateur->path = $request->path;
+     $utilisateur->tuteur_id = $request->tuteur;
      $utilisateur-> save();
      
      return redirect('/ajouter')->with('status', 'L\'utilisateur a bien été ajouter avec succes.');
@@ -47,13 +51,15 @@ class utilisateurcontroller extends Controller
         'nom'=> 'required',
         'prenom'=> 'required',
         'email'=> 'required',
-        'path'=> 'required',
+        // 'path'=> 'required',
+        // 'tuteur'=> 'required',
     ]);
     $utilisateur = Utilisateur::find($request->id);
     $utilisateur->nom = $request->nom;
     $utilisateur->prenom = $request->prenom;
     $utilisateur->email = $request->email;
-    $utilisateur->path = $request->path;
+    // $utilisateur->path = $request->path;
+    // $utilisateur->tuteur = $request->tuteur_id;
     $utilisateur-> update();
     return redirect('/utilisateur')->with('status', 'L\'utilisateur a bien été modifié avec succes.');
    }

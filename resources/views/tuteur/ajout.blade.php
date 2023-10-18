@@ -13,7 +13,7 @@
     <div class="row">
     
     <div class="col s12">
-        <h1>Ajouter un utilisateur</h1>
+        <h1>Ajouter un tuteur</h1>
         <hr>
         @if (session('status'))
         <div class="alert alert-success">
@@ -27,7 +27,7 @@
         @endforeach
         </ul>
         
-        <form action="/ajouter/traitement" method="POST" class="form-group">
+        <form action="/ajout/traitement" method="POST" class="form-group">
         @csrf
                         <div class="form-group">
                             <label for="Nom" class="form-label">Nom</label>
@@ -39,25 +39,25 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="Email" name="email">
+                            <label for="profession" class="form-label">Profession</label>
+                            <input type="text" class="form-control" id="Profession" name="profession">
                         </div>
                         <div class="form-group">
-                            <label for="path" class="form-label">Image</label>
-                            <input type="file" class="form-control" id="image" name="path">
+                            <label for="contact" class="form-label">Contact</label>
+                            <input type="text" class="form-control" id="Contact" name="contact">
                         </div>
-                        <div class="form-group">
-                            <label for="tuteur" class="form-label">Tuteur</label><br>
-                            <select name="tuteur" id="tuteur">
-                              @foreach($tuteurs as $tuteur)
-                            <option value="{{$tuteur->id}}">{{$tuteur->nom}}</option>
-                            @endforeach
+                        {{-- <div class="form-group">
+                            <label for="utilisateur" class="form-label" name="">Utilisateur</label><br>
+                            <select name="utilisateur" id="Utilisateur">
+                            <option value=""></option>
                             </select>
-                        </div>
+                           
+                        </div> --}}
+            
                        <br><br>
-                        <button type="submit" class="btn btn-primary">Ajouter un utilisateur</button>
+                        <button type="submit" class="btn btn-primary">Ajouter un tuteur</button>
                         <br><br>
-                        <a href="/utilisateur" class="btn btn-danger"> Revenir a la liste des utilisateurs</a>
+                        <a href="/tuteur" class="btn btn-danger"> Revenir a la liste des tuteurs</a>
                         <br>
                 </form>
        

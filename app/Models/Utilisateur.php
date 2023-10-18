@@ -23,9 +23,9 @@ class Utilisateur extends Model
         return $this->hasOne(Image::class);
     }
     
-    public function tuteurs()
+    public function tuteur()
     {
-        return $this->hasMany(Tuteur::class);
+        return $this->belongsTo(Tuteur::class);
         
     }
 }

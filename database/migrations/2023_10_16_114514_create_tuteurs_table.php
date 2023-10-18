@@ -21,7 +21,7 @@ return new class extends Migration
             
             // $table->unsignedBigInteger('utilisateur_id');
             // $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
-            $table->foreignId('utilisateur_id')->constrained();
+            // $table->foreignId('utilisateur_id')->constrained();
         });
     }
 

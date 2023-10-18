@@ -13,7 +13,7 @@
     <div class="row">
     
     <div class="col s12">
-        <h1>Ajouter un utilisateur</h1>
+        <h1>Modifier un tuteur</h1>
         <hr>
         @if (session('status'))
         <div class="alert alert-success">
@@ -27,37 +27,40 @@
         @endforeach
         </ul>
         
-        <form action="/ajouter/traitement" method="POST" class="form-group">
+        <form action="/updat/traitement" method="POST" class="form-group">
         @csrf
+        
+                        <input type="text" name="id" style="display:none;" value="{{ $tuteurs->id }}">
+                        
                         <div class="form-group">
                             <label for="Nom" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="Nom" name="nom">
+                            <input type="text" class="form-control" id="Nom" name="nom" value="{{ $tuteurs->nom }}">
                         </div>
                         <div class="form-group">
                             <label for="Prenom" class="form-label">Prenom</label>
-                            <input type="text" class="form-control" id="Prenom" name="prenom">
+                            <input type="text" class="form-control" id="Prenom" name="prenom" value="{{ $tuteurs->prenom }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="Email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="Email" name="email">
+                            <label for="Profession" class="form-label">Profession</label>
+                            <input type="text" class="form-control" id="Profession" name="profession" value="{{ $tuteurs->profession }}">
                         </div>
                         <div class="form-group">
-                            <label for="path" class="form-label">Image</label>
-                            <input type="file" class="form-control" id="image" name="path">
+                            <label for="Contact" class="form-label">contact</label>
+                            <input type="text" class="form-control" id="Profession" name="contact" value="{{ $tuteurs->contact }}">
                         </div>
                         <div class="form-group">
-                            <label for="tuteur" class="form-label">Tuteur</label><br>
-                            <select name="tuteur" id="tuteur">
-                              @foreach($tuteurs as $tuteur)
-                            <option value="{{$tuteur->id}}">{{$tuteur->nom}}</option>
-                            @endforeach
-                            </select>
+                            <label for="name" class="form-label">Tuteur</label><br>
+                            {{-- @foreach($utilisateurs->tuteurs as $tuteur) --}}
+                            <input type="text" id="nom" name="nom" value="">
+                            <input type="text" id="prenom" name="prenom" value="">
+                            <input type="text" id="contact" name="contact" value="">
+                            {{-- @endforeach --}}
                         </div>
                        <br><br>
-                        <button type="submit" class="btn btn-primary">Ajouter un utilisateur</button>
+                        <button type="submit" class="btn btn-primary">Modifier le tuteur</button>
                         <br><br>
-                        <a href="/utilisateur" class="btn btn-danger"> Revenir a la liste des utilisateurs</a>
+                        <a href="/tuteur" class="btn btn-danger"> Revenir a la liste des tuteurs</a>
                         <br>
                 </form>
        

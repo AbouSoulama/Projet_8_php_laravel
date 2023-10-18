@@ -46,13 +46,17 @@
                             <input type="email" class="form-control" id="Email" name="email" value="{{ $utilisateurs->email }}">
                         </div>
                         <div class="form-group">
-                            <label for="name" class="form-label">Tuteur</label><br>
-                            {{-- @foreach($utilisateurs->tuteurs as $tuteur) --}}
-                            <input type="text" id="nom" name="nom" value="">
-                            <input type="text" id="prenom" name="prenom" value="">
-                            <input type="text" id="contact" name="contact" value="">
-                            {{-- @endforeach --}}
+                            <label for="Path" class="form-label">Photo</label>
+                            <input type="file" class="form-control" id="Path" name="path" value="{{ $utilisateurs->path }}">
                         </div>
+                        {{-- <div class="form-group">
+                            <label for="tuteur" class="form-label">Tuteur</label><br>
+                            
+                            <input type="text" id="Nom" name="nom" value="">
+                            <input type="text" id="Prenom" name="prenom" value="">
+                            <input type="text" id="Contact" name="contact" value="">
+                          
+                        </div> --}}
                        <br><br>
                         <button type="submit" class="btn btn-primary">Modifier un utilisateur</button>
                         <br><br>

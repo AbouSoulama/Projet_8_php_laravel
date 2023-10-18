@@ -14,7 +14,7 @@
     
     <div class="col s12">
     <hr>
-        <h1>Crud administrateur</h1>
+        <h1>Liste des utilisateurs</h1>
         <hr>
         <a href="/tuteur" class="btn btn-info" style="margin-right: 60%">Liste des tuteurs</a>
         <a href="/ajouter" class="btn btn-primary">ajouter un utilisateur</a>
@@ -48,16 +48,10 @@
                      <td>{{ $utilisateur->nom }}</td>
                      <td>{{ $utilisateur->prenom }}</td>
                      <td>{{ $utilisateur->email }}</td>
-                     <td> <img src="{{ $utilisateur->path }}" alt=""> </td>
-                     {{-- <td> <img src="{{ $utilisateur->image ? $utilisateur->image->path: "" }}" alt=""> </td> --}}
+                     <td><img src="/image/{{ $utilisateur->path }}" alt="" style="height:60px; width:60px;border-radius:50px;"></td>
                      <td>
-                     
-                     @foreach($utilisateur->tuteurs as $tuteur)
-                     {{ $utilisateur->nom }}
-                     {{ $utilisateur->prenom }}
-                     {{-- <span>{{ $utilisateur->profession }}</span> --}}
-                     {{ $utilisateur->contact }}
-                     @endforeach
+                     {{$utilisateur->tuteur->nom}}
+                     {{$utilisateur->tuteur->prenom}}
                      
                      </td>
                      <td>

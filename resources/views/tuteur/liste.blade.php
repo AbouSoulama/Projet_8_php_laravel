@@ -16,7 +16,7 @@
     <hr>
         <h1>Liste tuteurs</h1>
         <hr>
-        <a href="" class="btn btn-primary">ajouter un tuteur</a>
+        <a href="/ajout" class="btn btn-primary">ajouter un tuteur</a>
         @if (session('status'))
         <div class="alert alert-success">
         {{session('status')}}
@@ -48,9 +48,16 @@
                 <td>{{ $tuteur->prenom }}</td>
                 <td>{{ $tuteur->profession}}</td>
                 <td>{{ $tuteur->contact}}</td>
-                <td></td>
                 <td>
-                <a href="/update-tuteur/{{ $tuteur->id }}" class="btn btn-info">Modifier</a>
+                
+                  @foreach($tuteur->utilisateurs as $utilisateur)
+                  {{ $utilisateur->nom }} 
+                  {{ $utilisateur->prenom }}<br> 
+                  @endforeach
+                
+                </td>
+                <td>
+                <a href="/updat-tuteur/{{ $tuteur->id }}" class="btn btn-info">Modifier</a>
                 <a href="/delete-tuteur/{{ $tuteur->id }}" class="btn btn-danger">Supprimer</a>
                 </td>
            </tr>

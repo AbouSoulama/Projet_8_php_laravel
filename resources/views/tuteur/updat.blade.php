@@ -49,14 +49,6 @@
                             <label for="Contact" class="form-label">contact</label>
                             <input type="text" class="form-control" id="Profession" name="contact" value="{{ $tuteurs->contact }}">
                         </div>
-                        <div class="form-group">
-                            <label for="name" class="form-label">Tuteur</label><br>
-                            {{-- @foreach($utilisateurs->tuteurs as $tuteur) --}}
-                            <input type="text" id="nom" name="nom" value="">
-                            <input type="text" id="prenom" name="prenom" value="">
-                            <input type="text" id="contact" name="contact" value="">
-                            {{-- @endforeach --}}
-                        </div>
                        <br><br>
                         <button type="submit" class="btn btn-primary">Modifier le tuteur</button>
                         <br><br>
